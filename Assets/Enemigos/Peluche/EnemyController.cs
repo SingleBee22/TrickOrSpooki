@@ -4,32 +4,47 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public int damagePerSecond = 1;
+    public Sprite atksprite;
+    public SpriteRenderer sr;
+    public float damagePerSecond = 1;
     public float detachDelay = 2f;
 
     private bool isAttached = false;
     private float detachTimer = 0f;
     private Char_Movement playerController;
+    private PlayerHealth playerHealth;
 
     private void Start()
     {
         playerController = FindObjectOfType<Char_Movement>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     private void Update()
     {
-        if (isAttached)
+        if(playerController.transform.position.x - this.transform.position.x < 0)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
+
+        if (playerController.IsLockPlayer(this))
         {
             // Reduce la salud del jugador
-            playerController.TakeDamage(damagePerSecond * Time.deltaTime);
+            playerHealth.TakeDamage(damagePerSecond * Time.deltaTime);
 
             // Comienza a contar el tiempo para soltar al jugador
+            /*
             detachTimer += Time.deltaTime;
             if (detachTimer >= detachDelay)
             {
                 isAttached = false;
                 playerController.UnlockPlayer();
             }
+            */
         }
     }
 
@@ -37,8 +52,8 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            isAttached = true;
-            playerController.LockPlayer();
+            sr.sprite = atksprite;
+            playerController.LockPlayer(this);
             detachTimer = 0f;
         }
     }

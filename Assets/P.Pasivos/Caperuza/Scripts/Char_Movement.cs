@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class Char_Movement : MonoBehaviour
 {
-    public int maxHealth = 10;
     public float detachThreshold = 10f;
     public float moveSpeed = 5f; // Velocidad de movimiento del personaje
 
-    private float currentHealth;
     private int pressCountA;
     private int pressCountD;
     private bool isPlayerLocked = false;
+    EnemyController enemyLock = null;
     private Rigidbody2D rb; // Componente Rigidbody2D para el movimiento físico
 
     private void Start()
     {
-        currentHealth = maxHealth;
+
         rb = GetComponent<Rigidbody2D>(); // Obtiene el componente Rigidbody2D
     }
 
@@ -47,27 +46,21 @@ public class Char_Movement : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageAmount)
+    public void LockPlayer(EnemyController other)
     {
-        if (!isPlayerLocked)
-        {
-            currentHealth -= damageAmount;
-
-            if (currentHealth <= 0)
-            {
-                // Realiza acciones cuando el jugador se quede sin salud
-                // ...
-            }
-        }
+        enemyLock = other;
+        isPlayerLocked = true;
     }
 
-    public void LockPlayer()
+    public bool IsLockPlayer(EnemyController other)
     {
-        isPlayerLocked = true;
+        return isPlayerLocked && enemyLock.GetHashCode() == other.GetHashCode();
     }
 
     public void UnlockPlayer()
     {
+        enemyLock.gameObject.SetActive(false);
+        enemyLock = null;
         isPlayerLocked = false;
         pressCountA = 0;
         pressCountD = 0;
@@ -77,9 +70,7 @@ public class Char_Movement : MonoBehaviour
     {
         if (pressCountA >= detachThreshold && pressCountD >= detachThreshold)
         {
-            isPlayerLocked = false;
-            pressCountA = 0;
-            pressCountD = 0;
+            UnlockPlayer();
         }
     }
 

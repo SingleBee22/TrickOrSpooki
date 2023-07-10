@@ -64,7 +64,7 @@ public class GhostMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Human")
+        if (collision.transform.tag == "Player")
         {
             player = collision.transform;
             isFollowing = true;
@@ -74,7 +74,7 @@ public class GhostMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Human")
+        if (collision.transform.tag == "Player")
         {
             player = null;
             isFollowing = false;

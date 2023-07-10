@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public UnityEvent inPlayerDeath;
+
     public Image fullHealthImage;
     public Image halfHealthImage;
     public Image lowHealthImage;
@@ -54,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerLost()
     {
+        inPlayerDeath.Invoke();
         // Acciones específicas cuando el jugador pierde (por ejemplo, reiniciar el nivel, mostrar una pantalla de game over, etc.)
         // ...
     }
