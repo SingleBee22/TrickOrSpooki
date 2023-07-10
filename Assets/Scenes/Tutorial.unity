@@ -711,7 +711,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   m_Layer: 5
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -770,7 +769,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -818,40 +817,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &536964836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,12 +3567,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5231255298805478325, guid: 299a76ee2c1f7164bb592cb842cf2c01, type: 3}
       propertyPath: LineasDialogo.Array.data[5]
-      value: 'Mom: Remember when a simbol pops up when you get close to some items,
-        you can pick them up by pressing E too!'
+      value: 'Mom: Remember if a simbol pops up, you can pick them up by pressing
+        E!'
       objectReference: {fileID: 0}
     - target: {fileID: 5231255298805478325, guid: 299a76ee2c1f7164bb592cb842cf2c01, type: 3}
       propertyPath: LineasDialogo.Array.data[6]
-      value: I knoooow, Mom, thanks for the reminder.
+      value: I knoooow, Mooooom, thanks for the reminder.
       objectReference: {fileID: 0}
     - target: {fileID: 5231255298805478325, guid: 299a76ee2c1f7164bb592cb842cf2c01, type: 3}
       propertyPath: LineasDialogo.Array.data[7]
