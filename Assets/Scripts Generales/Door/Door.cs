@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Locked_Door : MonoBehaviour
+public class Door : MonoBehaviour
 {
     public bool isLocked = true;
 

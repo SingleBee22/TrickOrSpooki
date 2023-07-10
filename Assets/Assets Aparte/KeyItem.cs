@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class CandyItem : MonoBehaviour
+public class KeyItem : MonoBehaviour
 {
-    public int scoreValue = 10;
-
     public InventoryController ic;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,7 +11,7 @@ public class CandyItem : MonoBehaviour
             InventoryController inventory = ic;
             if (inventory != null)
             {
-                inventory.AddScore(scoreValue);
+                inventory.AddKey();
                 Destroy(gameObject);
             }
         }

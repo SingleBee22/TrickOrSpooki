@@ -6,12 +6,12 @@ public class DoorImageController : MonoBehaviour
     public Sprite doorClosedSprite;
 
     private SpriteRenderer spriteRenderer;
-    private Locked_Door door;
+    private Door door;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        door = GetComponent<Locked_Door>();
+        door = GetComponent<Door>();
         CloseDoorImage();
         // UpdateDoorImage();
     }
