@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Flash : MonoBehaviour
 {
@@ -6,13 +7,14 @@ public class Flash : MonoBehaviour
     public float duracionClick = 0.5f; // Duración del cambio de opacidad y activación del Collider2D en segundos
 
     private SpriteRenderer spriteRenderer; // Referencia al componente SpriteRenderer
+    public Light2D l2D;
+
     private Collider2D objetoCollider; // Referencia al componente Collider2D
-    private Color colorOriginal; // Color original del objeto
+    private float intensidadO = 0.4f; // Color original del objeto
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        colorOriginal = spriteRenderer.color;
 
         objetoCollider = GetComponent<Collider2D>();
         objetoCollider.enabled = false; // Desactivar el Collider2D al iniciar
@@ -28,12 +30,12 @@ public class Flash : MonoBehaviour
 
     private System.Collections.IEnumerator CambiarOpacidadYActivarCollider()
     {
-        spriteRenderer.color = new Color(colorOriginal.r, colorOriginal.g, colorOriginal.b, opacidadClick);
+        l2D.intensity = opacidadClick;
         objetoCollider.enabled = true;
 
         yield return new WaitForSeconds(duracionClick);
 
-        spriteRenderer.color = colorOriginal;
+        l2D.intensity = intensidadO;
         objetoCollider.enabled = false;
     }
 }

@@ -14,7 +14,7 @@ public class Murcielago : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        playerTransform = FindObjectOfType<PlayerController>().transform;
+        playerTransform = FindObjectOfType<Char_Movement>().transform;
 
         SetSprite(idleSprite);
     }
