@@ -16,8 +16,13 @@ public class Stun : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (collision.GetComponent<GhostMovement>())
+            {
+                collision.GetComponent<GhostMovement>().enabled = false;
+                StartCoroutine(ReturnToNormal(collision.GetComponent<GhostMovement>()));
+            }
             // Desactiva la detección del jugador en el fantasma cuando entra en el área de luz
-            ghostMovement.enabled = false;
+            // ghostMovement.enabled = false;
         }
     }
 
@@ -25,8 +30,18 @@ public class Stun : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (collision.GetComponent<GhostMovement>()) {
+                collision.GetComponent<GhostMovement>().enabled = false;
+            }
             // Activa la detección del jugador en el fantasma cuando sale del área de luz
-            ghostMovement.enabled = true;
+            //ghostMovement.enabled = true;
         }
+    }
+
+    public IEnumerator ReturnToNormal(GhostMovement gm)
+    {
+        yield return new WaitForSeconds(1);
+        gm.enabled = true;
+
     }
 }

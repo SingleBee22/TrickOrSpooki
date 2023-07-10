@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BatteryItem : MonoBehaviour
+public class CandyItem : MonoBehaviour
 {
+    public int scoreValue = 10;
+
     public InventoryController ic;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,7 +13,7 @@ public class BatteryItem : MonoBehaviour
             InventoryController inventory = ic;
             if (inventory != null)
             {
-                inventory.AddBattery();
+                inventory.AddScore(scoreValue);
                 Destroy(gameObject);
             }
         }

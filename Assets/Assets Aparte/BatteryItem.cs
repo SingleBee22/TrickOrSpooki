@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyItem : MonoBehaviour
+public class BatteryItem : MonoBehaviour
 {
     public InventoryController ic;
 
@@ -11,7 +13,7 @@ public class KeyItem : MonoBehaviour
             InventoryController inventory = ic;
             if (inventory != null)
             {
-                inventory.AddKey();
+                inventory.AddBattery();
                 Destroy(gameObject);
             }
         }
