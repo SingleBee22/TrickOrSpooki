@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -60,5 +61,6 @@ public class PlayerHealth : MonoBehaviour
         inPlayerDeath.Invoke();
         // Acciones específicas cuando el jugador pierde (por ejemplo, reiniciar el nivel, mostrar una pantalla de game over, etc.)
         // ...
+        SceneManager.LoadScene("GameOver");
     }
 }

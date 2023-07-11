@@ -7,9 +7,10 @@ public class Murcielago : MonoBehaviour
     public float movementSpeed = 5f;
     public int damageAmount = 2;
 
+    public bool isActivated = false;
+
     private SpriteRenderer spriteRenderer;
     private Transform playerTransform;
-    private bool isActivated = false;
 
     private void Start()
     {
